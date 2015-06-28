@@ -82,7 +82,7 @@ int addToIndex (indexConfig *cnf, const unsigned char *key, void *value) {
   JudySlot *cell;
 
   // if the key is too long, return false
-  if (strlen(key) >= MAX_KEY_SIZE) {
+  if (strlen((char *) key) >= MAX_KEY_SIZE) {
     return 0;
   }
 
