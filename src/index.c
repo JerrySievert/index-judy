@@ -81,6 +81,11 @@ int addToIndex (indexConfig *cnf, const unsigned char *key, void *value) {
   indexData *data;
   JudySlot *cell;
 
+  // if the key is too long, return false
+  if (strlen(key) >= MAX_KEY_SIZE) {
+    return 0;
+  }
+
   // find or allocate the cell from the judy array
   cell = judy_cell((Judy *) cnf->idx, (uchar *) key, (size_t) strlen((const char *) key));
 
